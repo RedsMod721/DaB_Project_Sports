@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 from scipy.interpolate import griddata
 from scipy.ndimage import gaussian_filter 
@@ -76,8 +77,35 @@ plt.colorbar(orientation = 'horizontal', pad = 0.05)
 plt.title(player_name + ' vs Leage xGoal',fontdict={'fontsize': 15})
 plt.show()
 
+difference = difference[:,:90]
 
+fig, ax = plt.subplots(1,1, figsize=(10,12), facecolor='w', edgecolor='k')
 rink = HockeyRink.HockeyRink(board_radius=28, alpha=1)
-fig, ax = plt.subplots(1, 1, figsize=(10, 12), facecolor='w', edgecolor='k')
 rink.draw(ax, plot_half=True)
+
+# Currently having issue with 'extent' that shows the heatmap extending past the rink
+img = ax.imshow(difference, extent=(0,89,-42.5,42.5), cmap='bwr', origin='lower', alpha = 0.4)
+fig.colorbar(img, orientation="horizontal", pad=0.05)
+
+plt.title(player_name + ' vs League xGoal', fontdict={'fontsize': 15})
+plt.axis('off')
+
 plt.show()
+
+
+
+# difference = difference[:,:90]
+
+# fig, ax = plt.subplots(1,1, figsize=(10,12), facecolor='w', edgecolor='k')
+# rink = HockeyRink.HockeyRink(board_radius=28, alpha=1)
+# ax = ax.imshow(difference, extent = (0,89,-42.5,42.5),cmap='bwr', origin = 'lower', norm = mpl.color.Normalize(vmin=-0.05, vmax=0.05))
+# fig.colorbar(ax, orientation="horizontal",pad = 0.05)
+# plt.title(player_name + ' vs Leage xGoal',fontdict={'fontsize': 15})
+# plt.axis('off')
+# rink.draw(ax, plot_half=True)
+# plt.show()
+
+# rink = HockeyRink.HockeyRink(board_radius=28, alpha=1)
+# fig, ax = plt.subplots(1, 1, figsize=(10, 12), facecolor='w', edgecolor='k')
+# rink.draw(ax, plot_half=True)
+# plt.show()

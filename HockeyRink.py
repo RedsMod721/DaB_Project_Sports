@@ -20,52 +20,52 @@ class HockeyRink:
             (100-self.board_radius, (85/2)-self.board_radius),
             self.board_radius * 2, self.board_radius * 2,
             theta1=0, theta2=89, edgecolor='Black', lw=4.5,
-            zorder=0, alpha=self.alpha
+            zorder=1, alpha=self.alpha
         ))
         # Top Left
         ax.add_artist(mpl.patches.Arc(
             (-100+self.board_radius+.1, (85/2)-self.board_radius),
             self.board_radius * 2, self.board_radius * 2,
             theta1=90, theta2=180, edgecolor='Black', lw=4.5,
-            zorder=0, alpha=self.alpha
+            zorder=1, alpha=self.alpha
         ))
         # Bottom Left
         ax.add_artist(mpl.patches.Arc(
             (-100+self.board_radius+.1, -(85/2)+self.board_radius-.1),
             self.board_radius * 2, self.board_radius * 2,
             theta1=180, theta2=270, edgecolor='Black', lw=4.5,
-            zorder=0, alpha=self.alpha
+            zorder=1, alpha=self.alpha
         ))
         # Bottom Right
         ax.add_artist(mpl.patches.Arc(
             (100-self.board_radius, -(85/2)+self.board_radius-.1),
             self.board_radius * 2, self.board_radius * 2,
             theta1=270, theta2=360, edgecolor='Black', lw=4.5,
-            zorder=0, alpha=self.alpha
+            zorder=1, alpha=self.alpha
         ))
 
     def draw_boards(self, ax):
         """Draw the straight boards of the rink."""
         # Bottom
         ax.plot([-100+self.board_radius,100-self.board_radius], 
-                [-42.5, -42.5], linewidth=4.5, color="Black", 
-                zorder=0, alpha=self.alpha)
+                [-42.75, -42.75], linewidth=6, color="Black", 
+                zorder=1, alpha=self.alpha)
         # Top
         ax.plot([-100+self.board_radius-1,100-self.board_radius+1], 
                 [42.5, 42.5], linewidth=4.5, color="Black", 
-                zorder=0, alpha=self.alpha)
+                zorder=1, alpha=self.alpha)
         # Left
         ax.plot([-100,-100], [-42.5+self.board_radius, 42.5-self.board_radius], 
-                linewidth=4.5, color="Black", zorder=0, alpha=self.alpha)
+                linewidth=4.5, color="Black", zorder=1, alpha=self.alpha)
         # Right
         ax.plot([100,100], [-42.5+self.board_radius, 42.5-self.board_radius], 
-                linewidth=4.5, color="Black", zorder=0, alpha=self.alpha)
+                linewidth=4.5, color="Black", zorder=1, alpha=self.alpha)
 
     def draw_lines(self, ax):
         """Draw goal lines, center line, and blue lines."""
         # Goal Lines
         adj_top, adj_bottom = 4.6, 4.5
-        ax.plot([89,89], [-42.5+adj_bottom, 42.5-adj_top], 
+        ax.plot([89,89], [-41+adj_bottom, 41-adj_top], 
                 linewidth=3, color="Red", zorder=0, alpha=self.alpha)
         ax.plot([-89,-89], [-42.5+adj_bottom, 42.5-adj_top], 
                 linewidth=3, color="Red", zorder=0, alpha=self.alpha)
