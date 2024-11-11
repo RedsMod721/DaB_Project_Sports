@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.interpolate import griddata
 from scipy.ndimage import gaussian_filter 
-import Rink
+import HockeyRink
 
 data = pd.read_csv("shots_2023.csv")
 
@@ -74,4 +74,10 @@ fig = plt.figure(figsize=(10,12), facecolor='w', edgecolor='k')
 plt.imshow(difference,origin = 'lower')
 plt.colorbar(orientation = 'horizontal', pad = 0.05)
 plt.title(player_name + ' vs Leage xGoal',fontdict={'fontsize': 15})
+plt.show()
+
+
+rink = HockeyRink.HockeyRink(board_radius=28, alpha=1)
+fig, ax = plt.subplots(1, 1, figsize=(10, 12), facecolor='w', edgecolor='k')
+rink.draw(ax, plot_half=True)
 plt.show()
