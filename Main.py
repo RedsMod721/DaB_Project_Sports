@@ -84,7 +84,7 @@ rink = HockeyRink.HockeyRink(board_radius=28, alpha=1)
 rink.draw(ax, plot_half=True)
 
 # Currently having issue with 'extent' that shows the heatmap extending past the rink
-img = ax.imshow(difference, extent=(0,89,-42.5,42.5), cmap='bwr', origin='lower', alpha = 0.4)
+img = ax.imshow(difference, extent=(0,89,-42.5,42.5), vmin= -0.05, vmax= 0.05, cmap='bwr', origin='lower', alpha = 0.4)
 fig.colorbar(img, orientation="horizontal", pad=0.05)
 
 plt.title(player_name + ' vs League xGoal', fontdict={'fontsize': 15})
