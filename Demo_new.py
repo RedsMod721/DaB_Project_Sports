@@ -1,6 +1,9 @@
-from func_class import import_clean_data, Player, generate_player_report
+from func_class import import_clean_data, Player, Team, generate_player_report, generate_team_report 
 
 data = import_clean_data("shots_2023.csv")
+shoot_data = import_clean_data("shots_2023.csv")
+team_data = pd.read_csv("/Users/sebastian/Python/Class_Kedge/DaB_Project_Sports-main/skaters.csv")
 
-# Call the method to get the basic stats
 generate_player_report('Connor McDavid', data)
+
+generate_team_report('OTT', shoot_data, team_data)
