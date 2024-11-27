@@ -1,4 +1,9 @@
+tempfile
+shutil
+fpdf
+os
 numpy
 pandas
 matplotlib
-fpdf
+scipy
+HockeyRink
