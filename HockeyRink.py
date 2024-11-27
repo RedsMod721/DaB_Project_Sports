@@ -158,10 +158,3 @@ class HockeyRink:
         self.draw_faceoff_spots(ax)
         self.draw_goals_and_creases(ax)
         self.set_display_settings(ax, plot_half)
-
-# Example usage:
-if __name__ == "__main__":
-    fig, ax = plt.subplots(1, 1, figsize=(10, 12), facecolor='w', edgecolor='k')
-    rink = HockeyRink(board_radius=28, alpha=1)
-    rink.draw(ax, plot_half=True)
-    plt.show()
